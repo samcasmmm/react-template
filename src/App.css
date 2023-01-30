@@ -1,38 +1,114 @@
-.App {
-  text-align: center;
+* {
+  padding: 0;
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: darkgray;
+  font-family: 'Montserrat', sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  padding: 0.5rem 2rem;
+  /* width: 100%; */
+  height: 60px;
+  background: #fff;
+  transition: height 0.5s;
+}
+.navList {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 8px;
+  position: relative;
+}
+
+.btns {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.toggle-icon {
+  display: none;
+}
+
+.btn {
+  width: 80px;
+  height: 30px;
+  padding: 0.3rem 1rem;
+  background: none;
+  border: none;
+  border-radius: 8px;
+}
+
+.btn-1 {
+  background: crimson;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.btn-2 {
+  border: 1px solid crimson;
+  color: crimson;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 768px) {
+  .navbar {
+    position: relative;
   }
-  to {
-    transform: rotate(360deg);
+  .navList {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: -6rem;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .toggle-icon {
+    display: block;
+  }
+  .btns {
+    position: absolute;
+    top: -13rem;
+    display: flex;
+    flex-direction: column;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .navbar > .logo {
+    position: absolute;
+    left: 30px;
+    top: 1.8rem;
+  }
+  .navbar > .toggle-icon {
+    position: absolute;
+    right: 16px;
+    top: 1.8rem;
+  }
+  .navbar.expand {
+    height: 96vh;
+    transition: height 1s;
+  }
+
+  .navbar.expand > .logo {
+    position: absolute;
+    left: 30px;
+    top: 1.8rem;
+  }
+  .navbar.expand > .toggle-icon {
+    position: absolute;
+    right: 16px;
+    top: 1.8rem;
+  }
+  .navbar.expand > .navList {
+    top: 6rem;
+    transition: ease 0.8s;
+    transition-delay: 0.1s;
+  }
+  .navbar.expand > .btns {
+    top: 13rem;
+    transition: ease 0.8s;
   }
 }
